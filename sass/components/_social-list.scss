@@ -1,7 +1,5 @@
 .social-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %centering;
 }
 
 .social-list-item:not(:last-child) {
@@ -10,7 +8,8 @@
 
 .social-icons {
   fill: #afb1b8;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @include transition($prop: fill);
 
   .social-link:hover > &,
   .social-link:focus > & {
@@ -19,10 +18,10 @@
 }
 
 .social-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @extend %centering;
+
+  @include transition($prop: background-color);
+
   width: 44px;
   height: 44px;
   padding: 12px;

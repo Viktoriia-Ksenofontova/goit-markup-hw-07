@@ -7,3 +7,9 @@
   letter-spacing: 0.03em;
   color: $title-text-color;
 }
+
+%centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

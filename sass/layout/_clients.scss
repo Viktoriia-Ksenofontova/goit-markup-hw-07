@@ -13,15 +13,12 @@
 
 .clients-logo {
   fill: #afb1b8;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @include transition($prop: fill);
 }
 
 .client-list-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @extend %centering;
+  @include transition($prop: border-color);
 
   width: 170px;
   height: 90px;

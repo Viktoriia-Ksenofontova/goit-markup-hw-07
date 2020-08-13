@@ -351,6 +351,13 @@ template {
 
 /*шрифты*/
 /*палитра цветов*/
+.social-list, .social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* @include transition($prop: background-color);*/
 html {
   box-sizing: border-box;
 }
@@ -409,6 +416,13 @@ img {
   white-space: nowrap;
 }
 
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  scale: 0.1, 0.1;
+}
+
 .container {
   width: 1200px;
   padding-left: 15px;
@@ -426,19 +440,15 @@ img {
   letter-spacing: 0.03em;
 }
 
-.social-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .social-list-item:not(:last-child) {
   margin-right: 10px;
 }
 
 .social-icons {
   fill: #afb1b8;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover > .social-icons,
@@ -447,10 +457,9 @@ img {
 }
 
 .social-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 44px;
   height: 44px;
   padding: 12px;
@@ -488,7 +497,9 @@ img {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navig-link:hover, .navig-link:focus {
@@ -515,7 +526,9 @@ img {
 .smartphone-svg {
   margin-right: 10px;
   fill: #757575;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-navig-address {
@@ -570,7 +583,9 @@ img {
 }
 
 .filter-btn {
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   border-radius: 4px;
   padding-top: 6px;
@@ -627,7 +642,9 @@ img {
 .works-examples-link {
   display: block;
   padding-bottom: 20px;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .works-examples-link:hover, .works-examples-link:focus {
@@ -673,7 +690,9 @@ img {
   width: 100%;
   height: 100%;
   transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   margin: 0;
   padding-top: 63px;
   padding-right: 24px;

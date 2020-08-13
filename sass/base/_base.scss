@@ -55,3 +55,10 @@ img {
   width: 1px;
   white-space: nowrap;
 }
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  scale: 0.1, 0.1;
+}

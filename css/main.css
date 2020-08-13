@@ -361,6 +361,13 @@ template {
   color: #212121;
 }
 
+.modal-close-btn, .social-list, .social-link, .preference-item-svg, .client-list-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* @include transition($prop: background-color);*/
 html {
   box-sizing: border-box;
 }
@@ -419,6 +426,13 @@ img {
   white-space: nowrap;
 }
 
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  scale: 0.1, 0.1;
+}
+
 .container {
   width: 1200px;
   padding-left: 15px;
@@ -434,14 +448,6 @@ img {
   font-size: 26px;
   line-height: 1.19;
   letter-spacing: 0.03em;
-}
-
-/*Модальное окно*/
-.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  scale: 0.1, 0.1;
 }
 
 .backdrop {
@@ -476,24 +482,24 @@ img {
   position: absolute;
   top: 8px;
   right: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #fff;
   color: #000;
+  cursor: pointer;
 }
 
 .modal-form-icon-close {
   fill: inherit;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-close-btn:hover > .modal-form-icon-close {
+.modal-close-btn:hover > .modal-form-icon-close,
+.modal-close-btn:focus > .modal-form-icon-close {
   fill: #2196f3;
 }
 
@@ -522,6 +528,9 @@ img {
 
 .modal-form-input,
 .modal-form-comment {
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 448px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
@@ -532,21 +541,31 @@ img {
   line-height: 1.14;
   letter-spacing: 0.01em;
   color: #757575;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.modal-form-input:focus,
+.modal-form-comment:focus {
+  outline: none;
+  border-color: #2196f3;
 }
 
 .modal-form-label {
   position: absolute;
   top: 12px;
   left: 42px;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: all;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form-icons {
   position: absolute;
   top: 11px;
   left: 16px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form-input:focus ~ .modal-form-icons {
@@ -601,6 +620,9 @@ img {
 }
 
 .icon-check {
+  transition-property: all;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
   top: 0;
   left: 16px;
@@ -608,18 +630,11 @@ img {
   stroke: #fff;
   border: 1px solid #212121;
   background-color: #fff;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .agreement-checkbox:checked + .icon-check {
   border: none;
   background-color: #2196f3;
-}
-
-.modal-form-input:focus,
-.modal-form-comment:focus {
-  outline: none;
-  border-color: #2196f3;
 }
 
 .modal-form-input:focus + .modal-form-label,
@@ -658,18 +673,14 @@ img {
   letter-spacing: 0.06em;
   color: #fff;
   background-color: #2196f3;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .modal-form-btn:hover, .modal-form-btn:focus {
   background-color: #188ce8;
-}
-
-.social-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .social-list-item:not(:last-child) {
@@ -678,7 +689,9 @@ img {
 
 .social-icons {
   fill: #afb1b8;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover > .social-icons,
@@ -687,10 +700,9 @@ img {
 }
 
 .social-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 44px;
   height: 44px;
   padding: 12px;
@@ -728,7 +740,9 @@ img {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navig-link:hover, .navig-link:focus {
@@ -755,7 +769,9 @@ img {
 .smartphone-svg {
   margin-right: 10px;
   fill: #757575;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-navig-address {
@@ -836,7 +852,9 @@ img {
   padding-bottom: 10px;
   padding-left: 32px;
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 200px;
   border-radius: 4px;
   border: none;
@@ -870,9 +888,6 @@ img {
 }
 
 .preference-item-svg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-width: 270px;
   height: 120px;
   background-color: #f5f4fa;
@@ -992,14 +1007,15 @@ img {
 
 .clients-logo {
   fill: #afb1b8;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-list-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 170px;
   height: 90px;
   border: 1px solid #afb1b8;
